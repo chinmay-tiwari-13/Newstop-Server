@@ -12,14 +12,14 @@ app.use(helmet());
 
 app.use((req, res, next) => {
 
-  res.setHeader('Access-Control-Allow-Origin', 'https://newstoplive.netlify.app/'); // Allow requests from React dev server
+  res.setHeader('Access-Control-Allow-Origin', 'https://newstoplive.netlify.app'); // Allow requests from React dev server
   res.setHeader('Cross-Origin-Resource-Policy', 'cross-origin'); // Set CORP header
   // req.setTimeout(60000); // Set request timeout
   next();
 });
 
 app.use(cors({
-  origin: 'https://newstoplive.netlify.app/', // your React app's origin
+  origin: 'https://newstoplive.netlify.app', // your React app's origin
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true, // allow credentials
 }));
