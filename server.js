@@ -12,16 +12,16 @@ app.use(helmet());
 
 app.use((req, res, next) => {
 
-  res.setHeader('Access-Control-Allow-Origin', 'https://newstoplive.netlify.app'); // Allow requests from React dev server
-  res.setHeader('Cross-Origin-Resource-Policy', 'cross-origin'); // Set CORP header
-  // req.setTimeout(60000); // Set request timeout
+  res.setHeader('Access-Control-Allow-Origin', 'https://newstoplive.netlify.app'); 
+  res.setHeader('Cross-Origin-Resource-Policy', 'cross-origin'); 
+  // req.setTimeout(60000); 
   next();
 });
 
 app.use(cors({
-  origin: 'https://newstoplive.netlify.app', // your React app's origin
+  origin: 'https://newstoplive.netlify.app', 
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  credentials: true, // allow credentials
+  credentials: true, 
 }));
 
 app.get('/', async (req, res) => {
@@ -47,10 +47,10 @@ app.get('/keyword', async (req, res) => {
 
 
   const year = yesterday.getFullYear();
-  const month = String(yesterday.getMonth() + 1).padStart(2, '0'); // Months are 0-based
+  const month = String(yesterday.getMonth() + 1).padStart(2, '0'); 
   const day = String(yesterday.getDate()).padStart(2, '0');
   const year2 = tenDaysAgo.getFullYear();
-  const month2 = String(tenDaysAgo.getMonth() + 1).padStart(2, '0'); // Months are 0-based
+  const month2 = String(tenDaysAgo.getMonth() + 1).padStart(2, '0');
   const day2 = String(tenDaysAgo.getDate()).padStart(2, '0');
   const { keyword, language, page, pageSize } = req.query;
   try {
