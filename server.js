@@ -17,7 +17,7 @@ app.get('/', async (req, res) => {
   try {
     const response = await axios.get('https://newsapi.org/v2/top-headlines', {
       params: {
-        country: country || 'in',
+        country: country || 'us',
         page: page || 1,
         pageSize: pageSize || 20,
         apiKey: '5f084bc3eab349999f67ff89e9b07927'
