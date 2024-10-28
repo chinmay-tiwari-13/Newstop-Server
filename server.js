@@ -6,7 +6,6 @@ const app = express();
 const port = 3301;
 
 app.use(helmet());
-
 app.use(cors({
   origin: 'https://newstoplive.netlify.app',
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
@@ -26,6 +25,7 @@ app.get('/', async (req, res) => {
     });
     res.json(response.data);
   } catch (error) {
+    console.error("Error fetching top headlines:", error.message);
     res.status(500).json({ message: 'Error fetching data' });
   }
 });
@@ -54,11 +54,11 @@ app.get('/keyword', async (req, res) => {
     });
     res.json(response.data);
   } catch (error) {
-    console.error(error);
+    console.error("Error fetching keyword data:", error.message);
     res.status(500).json({ message: 'Error fetching data' });
   }
 });
 
 app.listen(port, () => {
-  console.log(`server is running at http://localhost:${port}`);
+  console.log(`Server is running at http://localhost:${port}`);
 });
